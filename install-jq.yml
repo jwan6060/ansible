@@ -1,7 +1,7 @@
 - hosts: localhost
   become: yes
   vars:
-    ansible_become_pass: redhat
+    ansible_become_pass: 'redhat'
   tasks:
     - name: Install jq 
       yum:
