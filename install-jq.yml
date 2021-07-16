@@ -13,8 +13,8 @@
       check_mode: true
       register: package_check
 
-    - name: "Print execution results"
+    - name: print results
       debug:
-        msg: "Package is installed"
+        msg: "jq package is installed"
       when: package_check is succeeded
 
