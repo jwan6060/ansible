@@ -12,4 +12,5 @@
       when: '"{{item}}" in ansible_facts.packages'
       with_items:
         - jq
+        - git
 
