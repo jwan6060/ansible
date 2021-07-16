@@ -7,10 +7,14 @@
         state: present
         
     - name: validation 
-      debug: 
-        msg: "{{item}} is installed"
-      when: '"{{item}}" in ansible_facts.packages'
-      with_items:
-        - jq
-        - git
+      package:
+        name: jq
+        state: present
+      check_mode: true
+      register: package_check
+
+    - name: "Print execution results"
+      debug:
+        msg: "Package is installed"
+      when: package_check is succeeded
 
