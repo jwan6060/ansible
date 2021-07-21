@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('connect git') {
+            steps {
+               git branch: 'main', url: 'https://github.com/jwan6060/ansible'
+            }
+        }
+        stage('install jq') {
+            steps {
+                ansiblePlaybook installation: 'ansible2', playbook: 'install-jq.yml'
+            }
+        }
+    }
+}
